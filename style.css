@@ -1,0 +1,429 @@
+:root {
+  --colorWhite: #fff;
+  --mainColorPink: #e31ee6;
+  --colorBorderPink: #df24e2;
+  --mainColorGreen: #b0bd00;
+  --colorTransparent: transparent;
+  --backgroundButtonPink: linear-gradient(145deg, #f320f6, #cc1bcf);
+  --boxShadowDropDownMenuPink: -2px 3px 16px #740f75, -6px -11px 16px #ff2dff;
+  --boxShadowLabelControlPink: 6px 6px 12px #b618b8, -6px -6px 12px #ff24ff;
+  --boxShadowIconsSocialMediaPink: 5px 5px 10px #740f75, -5px -5px 10px #ff2dff;
+  --boxShadowButtonsMediasSocialPink: 18px 7px 28px #740f75, -6px -8px 28px #ff2dff;
+  --boxShadowButtonHeaderPink: 5px 5px 10px #740f75, -5px -5px 10px #ff2dff;
+  --boxShadowButtonHeaderGreen : 5px 5px 10px #8d9700,
+             -5px -5px 10px #d3e300;
+  --boxShadowDropDownMenuGreen: 14px 14px 28px #8d9700,
+             -14px -14px 28px #d3e300;
+  --colorBorderGreen : #b3bf0c;
+
+  --boxShadowLabelControlGreen: 6px 6px 12px #8d9700,
+             -6px -6px 12px #d3e300;
+
+  --boxShadowIconsSocialMediaGreen:  5px 5px 10px #8d9700,
+             -5px -5px 10px #d3e300;
+
+  --boxShadowButtonsMediasSocialGreen: 10px 10px 20px #8d9700,
+             -10px -10px 20px #d3e300; 
+   
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  background-color: var(--mainColorPink);
+  height: 100vh;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+body,
+input,
+textarea,
+button {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--colorTransparent);
+}
+
+#app {
+  display: flex;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  max-width: 1280px;
+}
+
+
+/* navbar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  padding: 3rem 1rem 0 1rem;
+}
+
+.title-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav h1 {
+  color: var(--colorWhite);
+  text-align: right;
+  padding-left: 1rem;
+}
+
+.button-header {
+  width: 45px;
+  height: 45px;
+  border: 2px solid var(--mainColorGreen);
+  border-radius: 50%;
+  background: var(--backgroundButtonPink);
+  box-shadow: var(--boxShadowButtonHeaderPink);
+}
+
+.menu-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 28px;
+  height: 25px;
+  flex-wrap: wrap;
+  align-content: stretch;
+  cursor: pointer;
+}
+
+.line-1,
+.line-2 {
+  height: 2px;
+  width: 100%;
+  background: var(--colorWhite);
+  transition: ease-in 0.3s;
+}
+.menu-icon:hover .line-1 {
+  background: var(--mainColorGreen);
+}
+
+.menu-icon:hover .line-2 {
+  background: var(--mainColorGreen);
+}
+
+/* DropdownNavBar */
+.dropdown-menu {
+  width: 100%;
+  height: 170px;
+  margin-top: 1rem;
+  border-radius: 20px;
+  border: 0.5px solid var(--colorBorderPink);
+  opacity: 0;
+  visibility: hidden;
+  background: var(--backgroundBody);
+  box-shadow: var(--boxShadowDropDownMenuPink);
+  
+  padding-bottom: 2rem;
+
+  /* transition: box-shadow ease-in-out 0.2s; */
+}
+
+.title-dropdrow {
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  /* color: var(--colorWhite); */
+}
+
+.title-dropdrow span.icon-settings {
+  display: flex;
+}
+
+.title-dropdrow span.title-settings {
+  color: var(--colorWhite);
+  font-weight: 700;
+  padding-left: 0.2rem;
+}
+
+/* Theme checkbox */
+.ball {
+  background-color: var(--colorWhite);
+  border-radius: 50%;
+  left: -1.5px;
+  position: absolute;
+  transform: translateX(0px);
+  transition: transform 0.2s linear;
+  height: 24px;
+  width: 24px;
+  z-index: 4;
+  border: 2px solid var(--mainColorGreen);
+}
+
+.ball:hover {
+  outline: 2px solid var(--mainColorGreen);
+}
+
+.label.controls .ball-on {
+  font-size: 0.7rem;
+  color: var(--colorWhite);
+}
+
+.label.controls .ball-off {
+  font-size: 0.7rem;
+  padding-right: 1.5px;
+  color: var(--colorWhite);
+}
+
+.label {
+  background-color: var(--mainColorGreen);
+  border-radius: 50px;
+  border: 2px solid var(--colorWhite);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  position: relative;
+  height: 25px;
+  width: 52px;
+  margin-top: 10px;
+}
+
+.label.controls {
+  background-color: var(--mainColorPink);
+  border: 2px solid var(--mainColorGreen);
+  box-shadow: var(--boxShadowLabelControlPink);
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox:checked + .label .ball {
+  transform: translateX(26px);
+}
+
+.checkbox:checked + .label .ball.controls {
+  border: 2px solid var(--mainColorGreen);
+}
+
+nav.dropdown-active + .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  margin-top: 2.5rem;
+  height: auto;
+}
+
+nav.dropdown-active .menu-icon .line-1 {
+  margin-top: 0px;
+  transform: rotateZ(45deg);
+  transition: ease-in 0.3s;
+}
+
+nav.dropdown-active .menu-icon .line-2 {
+  margin-top: -12px;
+  transform: rotateZ(-45deg);
+  transition: ease-in 0.3s;
+}
+
+.itens-menu {
+  display: flex;
+  height: 100%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: -37px;
+  padding-top: 1rem;
+}
+
+.itens-menu li {
+  display: flex;
+  justify-content: center;
+  padding: 0.7rem;
+  border-right: 1px solid var(--colorWhite);
+}
+.icons-social-medias {
+  display: flex;
+  justify-content: space-between;
+}
+.icons-social-medias li {
+  margin: 0.5rem 0.5rem;
+  width: 35px;
+  height: 35px;
+  border: 2px solid var(--colorWhite);
+  border-radius: 50%;
+  background: var(--backgroundButtonPink);
+  box-shadow: var(--boxShadowIconsSocialMediaPink);
+  transform: all 0.3s ease;
+  cursor: pointer;
+}
+
+.icons-social-medias li svg {
+  scale: 2;
+  height: 10px;
+}
+
+.button-tiktok:active,
+.button-instagram:active,
+.button-youtube:active {
+  box-shadow: var(--boxShadowButtonsMediasSocialPink);
+  background: var(--mainColorGreen);
+  border: 2px solid var(--colorBorderPink);
+  scale: 1.2;
+}
+
+.button-tiktok:hover,
+.button-instagram:hover,
+.button-youtube:hover {
+  border: 2px solid var(--mainColorGreen);
+  transition: ease-in 0.4s;
+}
+
+li.label-controls {
+  border: 0;
+}
+
+.itens-menu li a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.itens-menu span {
+  color: var(--colorWhite);
+}
+
+@media only screen and (max-width: 680px) {
+  .dropdown-menu {
+    height: 40%;
+    padding-bottom: 2rem;
+  }
+  .itens-menu {
+    flex-wrap: wrap;
+    padding-top: 2rem;
+  }
+
+  .itens-menu li.button-instagram,
+  .itens-menu li.button-youtube,
+  .itens-menu li.button-tiktok {
+    border: 1.8px solid var(--colorWhite);
+  }
+
+  .itens-menu li.button-instagram:hover,
+  .itens-menu li.button-youtube:hover,
+  .itens-menu li.button-tiktok:hover {
+    border: 1.8px solid var(--mainColorGreen);
+  }
+
+  /* Green Theme */
+  .green-theme .itens-menu li.button-tiktok:active,
+  .green-theme .itens-menu li.button-instagram:active,
+  .green-theme .itens-menu li.button-youtube:active {
+    box-shadow: var(--boxShadowButtonsMediasSocialGreen);
+    background: var(--mainColorPink);
+    border: 2px solid var(--mainColorGreen);
+  }
+
+  .itens-menu li.button-tiktok:active,
+  .itens-menu li.button-instagram:active,
+  .itens-menu li.button-youtube:active {
+    box-shadow: var(--boxShadowButtonsMediasSocialPink);
+    background: var(--mainColorGreen);
+    border: 2px solid var(--colorBorderPink);
+    scale: 1.2;
+  }
+
+  .itens-menu li {
+    border: 0;
+  }
+}
+
+.green-theme {
+  background-color: var(--mainColorGreen);
+}
+
+.green-theme .button-header {
+  border: 2px solid var(--mainColorPink);
+  background: var(--mainColorGreen);
+  box-shadow: var(--boxShadowButtonHeaderGreen);
+
+}
+
+.green-theme .label{
+  background-color: var(--mainColorPink);
+}
+
+.green-theme .dropdown-menu{
+  box-shadow: var(--boxShadowDropDownMenuGreen);
+  border: 0.5px solid var(--colorBorderGreen);
+}
+.green-theme .label.controls {
+  background-color: var(--mainColorGreen);
+  border: 2px solid var(--mainColorPink);
+  box-shadow: var(--boxShadowLabelControlGreen);
+}
+
+
+.green-theme .ball {
+  border: 2px solid var(--mainColorPink);
+}
+
+.green-theme .checkbox:checked + .label .ball.controls {
+  border: 2px solid var(--mainColorPink);
+}
+.green-theme .ball:hover {
+  outline: 2px solid var(--mainColorPink);
+}
+
+.green-theme .menu-icon:hover .line-1 {
+  background: var(--mainColorPink);
+}
+
+.green-theme .menu-icon:hover .line-2 {
+  background: var(--mainColorPink);
+}
+
+.green-theme .icons-social-medias li {
+  background: var(--mainColorGreen);
+  box-shadow: var(--boxShadowIconsSocialMediaGreen);
+  border: 2px solid var(--colorWhite);
+}
+
+
+.green-theme .button-tiktok:hover,
+.green-theme .button-instagram:hover,
+.green-theme .button-youtube:hover{
+  border: 2px solid var(--mainColorPink);
+  transition: ease-in 0.4s;
+}
+
+.green-theme .button-tiktok:active,
+.green-theme .button-instagram:active,
+.green-theme .button-youtube:active {
+  box-shadow: var(--boxShadowButtonsMediasSocialGreen);
+  background: var(--mainColorPink);
+  border: 2px solid var(--mainColorGreen);
+}
+
+
+
